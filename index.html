@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ventilation and Environmental Control Systems</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google Fonts for a technical look -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Oswald:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <main class="presentation-container">
+      <!-- Slide 1: Title Slide -->
+      <section class="slide active" id="slide-1">
+        <!-- Top: Logos -->
+        <header class="slide-header">
+          <div class="logo-placeholder" data-label="University Logo">
+            <div class="logo-icon">🏛️</div>
+          </div>
+          <div class="logo-placeholder" data-label="Faculty Logo">
+            <div class="logo-icon">🔬</div>
+          </div>
+        </header>
+
+        <!-- Center: Titles -->
+        <div class="slide-content">
+          <h1 class="main-title">
+            Ventilation and Environmental Control Systems<br />
+            <span class="highlight">for Poultry Houses</span>
+          </h1>
+          <div class="separator"></div>
+          <h2 class="subtitle">
+            House Heating and Cooling Equipment & Types of Houses
+          </h2>
+        </div>
+
+        <!-- Bottom: Details -->
+        <footer class="slide-footer">
+          <div class="person-card student">
+            <span class="role">Student</span>
+            <span class="name">Mostafa Naeam Ismail</span>
+          </div>
+          <div class="person-card professor">
+            <span class="role">Professor</span>
+            <span class="name">Prof. Hassan Hafez Taraby</span>
+          </div>
+        </footer>
+      </section>
+
+      <!-- Slide 2: Overview / Agenda -->
+      <section class="slide" id="slide-2">
+        <h2 class="slide-title">Presentation Overview</h2>
+
+        <div class="agenda-grid">
+          <div class="agenda-item">
+            Introduction to Poultry House Environment
+          </div>
+          <div class="agenda-item">Basics of Ventilation in Poultry Houses</div>
+          <div class="agenda-item">Types of Ventilation Systems</div>
+          <div class="agenda-item">Environmental Control Components</div>
+          <div class="agenda-item">Heating Equipment Overview</div>
+          <div class="agenda-item">Types of Heating Systems</div>
+          <div class="agenda-item">Cooling Equipment Overview</div>
+          <div class="agenda-item">Cooling Methods in Poultry Houses</div>
+          <div class="agenda-item">Types of Poultry Houses</div>
+          <div class="agenda-item">Comparing Open, Closed & Tunnel Houses</div>
+          <div class="agenda-item">
+            System Integration: Ventilation + Heating + Cooling
+          </div>
+          <div class="agenda-item">KPIs for Environmental Performance</div>
+          <div class="agenda-item">
+            Key Environmental Equations & Calculations
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 3: Introduction & Diagram -->
+      <section class="slide" id="slide-3">
+        <h2 class="slide-title">Introduction to Poultry House Environment</h2>
+
+        <div class="intro-content">
+          <div class="text-panel">
+            <h3>Interaction of Factors</h3>
+            <ul class="fancy-list">
+              <li>
+                <strong>Temperature:</strong> Determines metabolic rate and feed
+                conversion.
+                <span class="detail"
+                  >Too hot = stress; Too cold = wasted energy.</span
+                >
+              </li>
+              <li>
+                <strong>Humidity:</strong> Affects thermal regulation (panting
+                effectiveness) and litter quality.
+                <span class="detail">High humidity + High heat = Lethal.</span>
+              </li>
+              <li>
+                <strong>Air Quality:</strong> Ammonia and CO2 levels indicate
+                ventilation efficiency.
+                <span class="detail"
+                  >Poor air quality damages respiratory systems.</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="diagram-panel">
+            <h3 class="diagram-label">Balance of Inputs & Outputs</h3>
+            <div class="schematic-container">
+              <!-- Inputs -->
+              <div class="schematic-column inputs">
+                <span class="col-label">INPUTS</span>
+                <div class="schematic-box input">Fresh Air (O2)</div>
+                <div class="schematic-box input">Feed</div>
+                <div class="schematic-box input">Water</div>
+              </div>
+
+              <!-- Process -->
+              <div class="schematic-column process">
+                <div class="process-arrow">➜</div>
+                <div class="house-box">
+                  <div class="icon">🏠</div>
+                  <strong>POULTRY HOUSE</strong>
+                  <span class="sub-text">Bird Metabolism</span>
+                </div>
+                <div class="process-arrow">➜</div>
+              </div>
+
+              <!-- Outputs -->
+              <div class="schematic-column outputs">
+                <span class="col-label">OUTPUTS</span>
+                <div class="schematic-box output">Heat</div>
+                <div class="schematic-box output">Moisture</div>
+                <div class="schematic-box output">Ammonia / CO2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 4: Basics of Ventilation -->
+      <section class="slide" id="slide-4">
+        <h2 class="slide-title">Basics of Ventilation</h2>
+
+        <div class="ventilation-content">
+          <!-- Definitions -->
+          <div class="definitions-container">
+            <div class="def-card">
+              <div class="def-icon">📉</div>
+              <h3>Negative Pressure</h3>
+              <p>
+                Created when exhaust fans pump air <strong>OUT</strong> of the
+                house, causing fresh air to be drawn <strong>IN</strong> through
+                inlets to equalize pressure.
+              </p>
+            </div>
+            <div class="def-card">
+              <div class="def-icon">🔄</div>
+              <h3>Air Exchange</h3>
+              <p>
+                The complete replacement of the internal air volume with fresh
+                outside air. Crucial for removing heat, moisture, and gases.
+              </p>
+            </div>
+          </div>
+
+          <!-- Diagram -->
+          <div class="vent-diagram-container">
+            <h3 class="diagram-title">Airflow Mechanics</h3>
+
+            <div class="vent-schematic">
+              <!-- Inlets Side -->
+              <div class="flow-section inlets">
+                <div class="label">Fresh Air Inlets</div>
+                <div class="arrow-group blue">
+                  <div class="arrow">➡</div>
+                  <div class="arrow">➡</div>
+                  <div class="arrow">➡</div>
+                </div>
+              </div>
+
+              <!-- House Body -->
+              <div class="house-body">
+                <div class="pressure-indicator">
+                  <span>Target Pressure</span>
+                  <strong>-0.05 to -0.10 in. WC</strong>
+                </div>
+                <div class="air-particles">
+                  <span>💨</span><span>💨</span><span>💨</span>
+                </div>
+              </div>
+
+              <!-- Fans Side -->
+              <div class="flow-section fans">
+                <div class="label">Exhaust Fans</div>
+                <div class="fan-blades-group">
+                  <div class="fan-unit">☢</div>
+                  <div class="fan-unit">☢</div>
+                </div>
+                <div class="arrow-group red">
+                  <div class="arrow">➡</div>
+                  <div class="arrow">➡</div>
+                  <div class="arrow">➡</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 5: Types of Ventilation Systems -->
+      <section class="slide" id="slide-5">
+        <h2 class="slide-title">Types of Ventilation Systems</h2>
+
+        <div class="systems-grid">
+          <!-- Natural Ventilation -->
+          <div class="system-card natural">
+            <div class="sys-icon">🍃</div>
+            <h3>Natural</h3>
+            <div class="sys-details">
+              <p>Relying on wind and thermal buoyancy (Stack Effect).</p>
+              <ul class="pros-cons">
+                <li class="pro">Low Cost</li>
+                <li class="con">Hard to Control</li>
+                <li class="neutral">Open Sided Houses</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Mechanical Ventilation -->
+          <div class="system-card mechanical">
+            <div class="sys-icon">⚙️</div>
+            <h3>Mechanical</h3>
+            <div class="sys-details">
+              <p>Fans control air exchange (Negative or Positive pressure).</p>
+              <ul class="pros-cons">
+                <li class="pro">Consistent Airflow</li>
+                <li class="con">Energy Cost</li>
+                <li class="neutral">Cross Ventilation</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Tunnel Ventilation -->
+          <div class="system-card tunnel">
+            <div class="sys-icon">🌪️</div>
+            <h3>Tunnel</h3>
+            <div class="sys-details">
+              <p>
+                High-velocity air moves like a piston down the house length.
+              </p>
+              <ul class="pros-cons">
+                <li class="pro">Max Cooling</li>
+                <li class="con">High Investment</li>
+                <li class="neutral">Hot Climates</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 6: Environmental Control Components -->
+      <section class="slide" id="slide-6">
+        <h2 class="slide-title">Environmental Control Components</h2>
+
+        <div class="control-layout">
+          <!-- Component Lists -->
+          <div class="component-list">
+            <h3 class="list-head">Sensors & Input</h3>
+            <div class="sensor-grid">
+              <div class="sensor-item">
+                <span class="s-icon">🌡️</span> Temperature
+              </div>
+              <div class="sensor-item">
+                <span class="s-icon">💧</span> Humidity (RH)
+              </div>
+              <div class="sensor-item">
+                <span class="s-icon">🌫️</span> CO2 / Ammonia
+              </div>
+              <div class="sensor-item">
+                <span class="s-icon">🌪️</span> Static Pressure
+              </div>
+            </div>
+
+            <h3 class="list-head" style="margin-top: 2rem">The Brain</h3>
+            <div class="controller-box">
+              <div class="c-icon">🖥️</div>
+              <div class="c-info">
+                <strong>Electronic Controller</strong>
+                <small
+                  >Processes data & makes decisions based on setpoints.</small
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Vertical Flowchart -->
+          <div class="flowchart-container">
+            <h3 class="diagram-title">Control Loop</h3>
+
+            <div class="vertical-flow">
+              <!-- Step 1 -->
+              <div class="flow-step">
+                <div class="step-box sensor-step">
+                  <span class="step-icon">📡</span>
+                  <strong>Sensor Reading</strong>
+                  <small>Detects deviation (e.g., Temp > 25°C)</small>
+                </div>
+              </div>
+
+              <!-- Arrow -->
+              <div class="flow-arrow">⬇</div>
+
+              <!-- Step 2 -->
+              <div class="flow-step">
+                <div class="step-box control-step">
+                  <span class="step-icon">⚙️</span>
+                  <strong>Controller Processing</strong>
+                  <small>Compares reading vs. Target Setpoint</small>
+                </div>
+              </div>
+
+              <!-- Arrow -->
+              <div class="flow-arrow">⬇</div>
+
+              <!-- Step 3 -->
+              <div class="flow-step">
+                <div class="step-box action-step">
+                  <span class="step-icon">🔌</span>
+                  <strong>Equipment Activation</strong>
+                  <small>Turns on Fans / Cooling Pads / Heaters</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 7: Heating Equipment Overview -->
+      <section class="slide" id="slide-7">
+        <h2 class="slide-title">Heating Equipment Overview</h2>
+
+        <div class="heating-content">
+          <!-- Text Content -->
+          <div class="heat-info">
+            <h3>Brooding Temperature Importance</h3>
+            <p class="highlight-text">
+              Chicks cannot regulate body heat for the first 5-7 days.
+            </p>
+            <ul class="heat-points">
+              <li>
+                <strong>Target Start:</strong> 32°C - 35°C (at bird level).
+              </li>
+              <li>
+                <strong>Consequences of Cold:</strong> Huddling, starvation,
+                increased mortality, poor heart development.
+              </li>
+              <li>
+                <strong>Consequences of Heat:</strong> Dehydration, pasting,
+                panting.
+              </li>
+              <li>
+                <strong>Goal:</strong> "Comfort Zone" where chicks eat, drink,
+                and sleep evenly distributed.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Visual Diagram -->
+          <div class="heat-visual-container">
+            <h3 class="diagram-title">Brooder Heat Distribution Pattern</h3>
+            <div class="brooder-zone">
+              <div class="heat-lamp">
+                <span class="lamp-icon">🔥</span>
+              </div>
+              <div class="heat-gradient"></div>
+
+              <!-- Chick Icons representing Ideal Distribution -->
+              <div class="chicks-layer">
+                <!-- Randomly distributed but happy -->
+                <span class="chick" style="top: 30%; left: 40%">🐥</span>
+                <span class="chick" style="top: 40%; left: 60%">🐥</span>
+                <span class="chick" style="top: 50%; left: 30%">🐥</span>
+                <span class="chick" style="top: 60%; left: 50%">🐥</span>
+                <span class="chick" style="top: 35%; left: 20%">🐥</span>
+                <span class="chick" style="top: 45%; left: 75%">🐥</span>
+                <span class="chick" style="top: 20%; left: 50%">🐥</span>
+                <span class="chick" style="top: 70%; left: 40%">🐥</span>
+              </div>
+
+              <div class="zone-labels">
+                <span class="label-hot">Warm (Source)</span>
+                <span class="label-cool">Cooler (Edge)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 8: Types of Heating Systems -->
+      <section class="slide" id="slide-8">
+        <h2 class="slide-title">Types of Heating Systems</h2>
+
+        <div class="systems-grid">
+          <!-- Spot Heating / Brooders -->
+          <div class="system-card brooder">
+            <div class="sys-icon">🔅</div>
+            <h3>Brooders</h3>
+            <div class="sys-details">
+              <p>
+                Creates zones of comfort. Chicks choose their preferred
+                temperature.
+              </p>
+              <ul class="pros-cons">
+                <li class="pro">Fuel Efficient</li>
+                <li class="pro">Warm Floor</li>
+                <li class="con">Manual Cleaning</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Radiant Tubes -->
+          <div class="system-card radiant">
+            <div class="sys-icon">〰️</div>
+            <h3>Radiant Tubes</h3>
+            <div class="sys-details">
+              <p>Emits infrared heat to floors and objects, not the air.</p>
+              <ul class="pros-cons">
+                <li class="pro">Dry Litter</li>
+                <li class="pro">Uniform Heat</li>
+                <li class="con">Higher Install Cost</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Space Heating / Forced Air -->
+          <div class="system-card forced-air">
+            <div class="sys-icon">🔥</div>
+            <h3>Forced-Air</h3>
+            <div class="sys-details">
+              <p>Heats the entire air volume of the house.</p>
+              <ul class="pros-cons">
+                <li class="pro">Easy to Manage</li>
+                <li class="con">Cold Floors</li>
+                <li class="con">High Fuel Usage</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 9: Cooling Equipment Overview -->
+      <section class="slide" id="slide-9">
+        <h2 class="slide-title">Cooling Equipment Overview</h2>
+
+        <div class="cooling-content">
+          <!-- Text Info -->
+          <div class="cool-info">
+            <div class="cool-card">
+              <h3>Evaporative Cooling Pads</h3>
+              <p>
+                Cellulose pads located at air inlets. Water trickles down, and
+                warm air passes through.
+              </p>
+              <ul class="cool-list">
+                <li>Usage: Tunnel Ventilation.</li>
+                <li>Effect: Lowers temp by 5-10°C.</li>
+                <li>Requires: High air velocity.</li>
+              </ul>
+            </div>
+
+            <div class="cool-card">
+              <h3>Fogging Nozzles</h3>
+              <p>High-pressure nozzles inject fine mist into the air.</p>
+              <ul class="cool-list">
+                <li>Usage: Natural or Mechanical systems.</li>
+                <li>Risk: Can increase humidity too much if not managed.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Diagram: Evaporative Process -->
+          <div class="cool-diagram-container">
+            <h3 class="diagram-title">Evaporative Cooling Mechanism</h3>
+
+            <div class="evap-process">
+              <!-- Warm Air In -->
+              <div class="air-stream hot">
+                <span class="label">Hot Outside Air</span>
+                <span class="temp">35°C</span>
+                <div class="big-arrow">➡</div>
+              </div>
+
+              <!-- The Pad -->
+              <div class="cooling-pad">
+                <div class="water-pipe"></div>
+                <div class="pad-surface">
+                  <!-- Animated drops -->
+                  <div class="drop d1">💧</div>
+                  <div class="drop d2">💧</div>
+                  <div class="drop d3">💧</div>
+                  <div class="drop d4">💧</div>
+                </div>
+                <div class="water-trough"></div>
+              </div>
+
+              <!-- Cool Air Out -->
+              <div class="air-stream cool">
+                <span class="label">Cooled Inside Air</span>
+                <span class="temp">26°C</span>
+                <div class="big-arrow">➡</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 10: Cooling Methods Logic -->
+      <section class="slide" id="slide-10">
+        <h2 class="slide-title">Cooling Methods Logic</h2>
+
+        <div class="logic-content">
+          <div class="logic-intro">
+            <h3>When to Activate Evaporative Cooling?</h3>
+            <p>
+              Cooling should only be used when air temperature implies heat
+              stress <strong>AND</strong> humidity allows for evaporation.
+            </p>
+          </div>
+
+          <!-- Logic Flowchart -->
+          <div class="logic-diagram">
+            <div class="monitor-phase">
+              <div class="condition-box temp">
+                <span class="c-icon">🌡️</span>
+                <strong>Temp > 28°C</strong>
+                <span class="status">TRUE</span>
+              </div>
+
+              <div class="logic-operator">AND</div>
+
+              <div class="condition-box humidity">
+                <span class="c-icon">💧</span>
+                <strong>Humidity < 75%</strong>
+                <span class="status">TRUE</span>
+              </div>
+            </div>
+
+            <div class="flow-arrow-down">⬇</div>
+
+            <div class="decision-diamond">
+              <span>Safe to Cool?</span>
+            </div>
+
+            <div class="decision-paths">
+              <!-- YES Path -->
+              <div class="path yes-path">
+                <div class="path-line"></div>
+                <span class="path-label">YES</span>
+                <div class="action-box activate">
+                  <div class="action-icon">🚿</div>
+                  <strong>Activate Pumps</strong>
+                  <small>Mist / Pad System ON</small>
+                </div>
+              </div>
+
+              <!-- NO Path -->
+              <div class="path no-path">
+                <div class="path-line"></div>
+                <span class="path-label">NO</span>
+                <div class="action-box warning">
+                  <div class="action-icon">⚠️</div>
+                  <strong>Fans Only</strong>
+                  <small>Risk of Suffocation</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 11: Types of Poultry Houses -->
+      <section class="slide" id="slide-11">
+        <h2 class="slide-title">Types of Poultry Houses</h2>
+
+        <div class="house-types-container">
+          <!-- Open Sided -->
+          <div class="house-type open-sided">
+            <div class="house-visual open">
+              <div class="roof"></div>
+              <div class="walls">
+                <div class="window"></div>
+                <div class="window"></div>
+                <div class="window"></div>
+              </div>
+              <div class="nature-icon">☀️ 🍃</div>
+            </div>
+
+            <div class="type-info">
+              <h3>Open-Sided House</h3>
+              <p>Relies on natural ventilation and sunlight.</p>
+              <ul class="type-list">
+                <li>Low initial cost.</li>
+                <li>Dependent on weather conditions.</li>
+                <li>Hard to control biosecurity.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="vs-divider">VS</div>
+
+          <!-- Closed (EC) -->
+          <div class="house-type closed-ec">
+            <div class="house-visual closed">
+              <div class="roof"></div>
+              <div class="walls solid">
+                <div class="vent-fan">☢</div>
+                <div class="vent-fan">☢</div>
+              </div>
+              <div class="tech-icon">🌡️ ❄️</div>
+            </div>
+
+            <div class="type-info">
+              <h3>Closed (EC) House</h3>
+              <p>Environmentally Controlled. Fully enclosed and insulated.</p>
+              <ul class="type-list">
+                <li>Total control over Temp, Humidity, Light.</li>
+                <li>Biosecure & Efficient.</li>
+                <li>High investment & Running cost.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 12: Comparing Open vs. Tunnel Houses -->
+      <section class="slide" id="slide-12">
+        <h2 class="slide-title">Comparing Open vs. Tunnel Houses</h2>
+
+        <div class="comparison-table-container">
+          <table class="comp-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th class="col-open">Open System</th>
+                <th class="col-tunnel">Tunnel System</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="feature-cell">Initial Investment</td>
+                <td>Low (Structure only)</td>
+                <td>High (Structure + Fans + Cool Cells)</td>
+              </tr>
+              <tr>
+                <td class="feature-cell">Running Energy Cost</td>
+                <td>Minimal (Natural)</td>
+                <td>High (Electricity for fans)</td>
+              </tr>
+              <tr>
+                <td class="feature-cell">Biosecurity</td>
+                <td class="negative">Low (Exposed to wild birds)</td>
+                <td class="positive">High (Fully sealed)</td>
+              </tr>
+              <tr>
+                <td class="feature-cell">Stocking Density</td>
+                <td>Low (8-10 birds/m²)</td>
+                <td class="positive">High (15-18 birds/m²)</td>
+              </tr>
+              <tr>
+                <td class="feature-cell">Production Efficiency</td>
+                <td>Variable (Seasonal)</td>
+                <td class="positive">Consistent (Year-round)</td>
+              </tr>
+              <tr>
+                <td class="feature-cell">Management Skill</td>
+                <td>Basic</td>
+                <td>Advanced (Requires monitoring)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Slide 13: System Integration -->
+      <section class="slide" id="slide-13">
+        <h2 class="slide-title">System Integration</h2>
+
+        <div class="integration-content">
+          <div class="integration-intro">
+            <h3>The Heart of the Operation</h3>
+            <p>
+              A <strong>Master Controller</strong> ensures systems do not fight
+              each other (e.g., heating while cooling is on).
+            </p>
+          </div>
+
+          <!-- Centralized Block Diagram -->
+          <div class="hub-diagram">
+            <!-- Central Node -->
+            <div class="central-node">
+              <span class="hub-icon">🖥️</span>
+              <strong>Master Controller</strong>
+              <small>Logic & Decisions</small>
+            </div>
+
+            <!-- Satellite Nodes -->
+            <div class="satellite-node vent-node">
+              <span class="sat-icon">💨</span>
+              <strong>Ventilation</strong>
+              <small>Air Quality & O2</small>
+              <div class="connector-line"></div>
+            </div>
+
+            <div class="satellite-node heat-node">
+              <span class="sat-icon">🔥</span>
+              <strong>Heating</strong>
+              <small>Brooding & Winter</small>
+              <div class="connector-line"></div>
+            </div>
+
+            <div class="satellite-node cool-node">
+              <span class="sat-icon">❄️</span>
+              <strong>Cooling</strong>
+              <small>Summer Heat Stress</small>
+              <div class="connector-line"></div>
+            </div>
+
+            <div class="satellite-node sensor-node">
+              <span class="sat-icon">📡</span>
+              <strong>Sensors</strong>
+              <small>Feedback Loop</small>
+              <div class="connector-line"></div>
+            </div>
+
+            <!-- Connecting Circles/Pulse -->
+            <div class="pulse-ring"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 14: KPIs for Environmental Performance -->
+      <section class="slide" id="slide-14">
+        <h2 class="slide-title">KPIs for Environmental Performance</h2>
+
+        <div class="dashboard-container">
+          <!-- Widget 1: Temp Stability -->
+          <div class="kpi-widget">
+            <h3 class="widget-title">Temp Stability</h3>
+            <div class="widget-display">
+              <div class="digital-value">±0.5<span class="unit">°C</span></div>
+              <div class="mini-chart line-chart">
+                <!-- CSS Line representing stability -->
+                <div class="chart-line"></div>
+              </div>
+            </div>
+            <div class="widget-status status-good">Target Achieved</div>
+          </div>
+
+          <!-- Widget 2: Air Speed -->
+          <div class="kpi-widget">
+            <h3 class="widget-title">Air Speed</h3>
+            <div class="widget-display">
+              <div class="gauge-container">
+                <div class="gauge-arc"></div>
+                <div class="gauge-value">
+                  3.5<br /><span class="unit">m/s</span>
+                </div>
+              </div>
+            </div>
+            <div class="widget-status status-good">Tunnel Velocity</div>
+          </div>
+
+          <!-- Widget 3: Ammonia Levels -->
+          <div class="kpi-widget">
+            <h3 class="widget-title">Ammonia (NH3)</h3>
+            <div class="widget-display row-display">
+              <div class="bar-container">
+                <div class="bar-fill"></div>
+              </div>
+              <div class="digital-value warning-color">
+                < 10<span class="unit">ppm</span>
+              </div>
+            </div>
+            <div class="widget-status status-warning">Max Limit</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 15: System Demonstration (Video) -->
+      <section class="slide" id="slide-15">
+        <h2 class="slide-title">System Demonstration</h2>
+        <div class="video-wrapper">
+          <div class="video-container">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/FiMbupAS90M?si=JJ9cE0geqyIKhr2v"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 16: References -->
+      <section class="slide" id="slide-16">
+        <h2 class="slide-title">References</h2>
+        <div class="references-layout">
+          <ul class="apa-list">
+            <li>
+              Aviagen. (2018). <em>Broiler Management Handbook</em>. Huntsville,
+              AL: Aviagen Group.
+            </li>
+            <li>
+              Czarick, M., & Fairchild, B. (2016).
+              <em>Poultry Housing Tips: Tunnel Ventilation</em>. University of
+              Georgia Cooperative Extension.
+            </li>
+            <li>
+              American Society of Agricultural and Biological Engineers (ASABE).
+              (2012).
+              <em
+                >Design of Ventilation Systems for Poultry and Livestock
+                Shelters</em
+              >
+              (ASAE EP270.5). St. Joseph, MI.
+            </li>
+            <li>
+              Donald, J. (2010).
+              <em>Environmental Control of Poultry Houses</em>. Auburn
+              University College of Agriculture.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Slide 17: Contact & Thank You -->
+      <section class="slide" id="slide-17">
+        <div class="thank-you-container">
+          <h1 class="huge-thanks">THANK YOU</h1>
+
+          <div class="footer-column contact-column">
+            <h4><i class="fas fa-envelope"></i> تواصل معي شخصيًا</h4>
+            <ul class="contact-list">
+              <li>
+                <i class="fab fa-whatsapp"></i>
+                <a href="https://wa.me/201114938410" target="_blank">واتساب</a>
+              </li>
+              <li>
+                <i class="fas fa-at"></i>
+                <a href="mailto:mnaeam10@gmail.com">mnaeam10@gmail.com</a>
+              </li>
+              <li>
+                <i class="fas fa-globe"></i>
+                <a href="https://mostafa-naeam.vercel.app/" target="_blank"
+                  >الموقع الرسمي</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

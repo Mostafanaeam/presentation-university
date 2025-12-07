@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poultry Environmental Control Systems</title>
+    <style>
+      /* --- CSS VARIABLES & RESET --- */
+      :root {
+        --bg-color: #0a192f;
+        --text-main: #ccd6f6;
+        --accent-color: #00ffa3;
+        --highlight: #64ffda;
+        --overlay: rgba(10, 25, 47, 0.95);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-main);
+        overflow: hidden; /* Prevents scrollbars, presentation style */
+        height: 100vh;
+        width: 100vw;
+      }
+
+      /* --- SLIDE CONTAINER --- */
+      .presentation-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* --- INDIVIDUAL SLIDES --- */
+      .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.6s ease-in-out, transform 0.6s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        transform: scale(0.95);
+      }
+
+      .slide.active {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+        z-index: 10;
+      }
+
+      /* --- TYPOGRAPHY --- */
+      h1,
+      h2,
+      h3 {
+        color: var(--accent-color);
+        text-shadow: 0 0 10px rgba(0, 255, 163, 0.2);
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 5vw, 4rem);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      h2 {
+        font-size: clamp(1.5rem, 4vw, 3rem);
+        border-bottom: 2px solid var(--accent-color);
+        padding-bottom: 10px;
+      }
+      h3 {
+        font-size: 1.5rem;
+        color: #fff;
+        margin-top: 1rem;
+      }
+
+      p,
+      li {
+        font-size: clamp(1rem, 1.5vw, 1.3rem);
+        line-height: 1.6;
+        max-width: 900px;
+      }
+
+      ul {
+        list-style-position: inside;
+        text-align: left;
+      }
+      li {
+        margin-bottom: 0.8rem;
+      }
+
+      /* --- SPECIAL ELEMENTS --- */
+
+      /* Logo Placeholders */
+      .logo-container {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+      .logo-placeholder {
+        width: 120px;
+        height: 120px;
+        border: 2px dashed var(--accent-color);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent-color);
+        font-size: 0.8rem;
+        text-align: center;
+        background: rgba(0, 255, 163, 0.05);
+      }
+
+      /* Content Grid for Diagrams */
+      .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        width: 90%;
+        max-width: 1200px;
+        align-items: center;
+      }
+
+      /* CSS Diagrams (Schematics) */
+      .diagram-box {
+        border: 2px solid var(--text-main);
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        position: relative;
+      }
+
+      .airflow-arrow {
+        display: inline-block;
+        color: var(--accent-color);
+        font-weight: bold;
+        font-size: 2rem;
+      }
+
+      /* Formulas & KPIs */
+      .formula-card {
+        background: rgba(0, 255, 163, 0.1);
+        border-left: 5px solid var(--accent-color);
+        padding: 1rem 2rem;
+        margin: 1rem 0;
+        font-family: "Courier New", monospace;
+        font-size: 1.2rem;
+      }
+
+      /* Video Embed */
+      .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        height: 0;
+        width: 80%;
+        max-width: 800px;
+        border: 2px solid var(--accent-color);
+        box-shadow: 0 0 20px rgba(0, 255, 163, 0.2);
+      }
+      .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      /* Navigation Hints */
+      .nav-hint {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        font-size: 0.8rem;
+        opacity: 0.5;
+      }
+
+      .progress-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 5px;
+        background-color: var(--accent-color);
+        width: 0%;
+        transition: width 0.3s ease;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .content-grid {
+          grid-template-columns: 1fr;
+        }
+        .logo-placeholder {
+          width: 80px;
+          height: 80px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="presentation-container">
+      <!-- SLIDE 1: Title -->
+      <section class="slide active">
+        <div class="logo-container">
+          <div class="logo-placeholder">[University Logo]</div>
+          <div class="logo-placeholder">[Faculty Logo]</div>
+        </div>
+        <h1>Poultry Environmental<br />Control Systems</h1>
+        <h3 style="color: var(--text-main); opacity: 0.8">
+          Ventilation, Heating, Cooling, and Housing Types
+        </h3>
+        <p style="margin-top: 2rem">Presented By: [Your Name]</p>
+        <div class="nav-hint">Use Left/Right Arrow Keys to Navigate</div>
+      </section>
+
+      <!-- SLIDE 2: Overview -->
+      <section class="slide">
+        <h2>Presentation Overview</h2>
+        <ul>
+          <li>
+            <strong>Types of Houses:</strong> Open-Sided vs. Environmentally
+            Controlled
+          </li>
+          <li>
+            <strong>Ventilation Principles:</strong> Negative Pressure & Tunnel
+            Ventilation
+          </li>
+          <li>
+            <strong>Equipment:</strong> Fans, Inlets, and Evaporative Cooling
+          </li>
+          <li><strong>Heating Systems:</strong> Brooders and Space Heaters</li>
+          <li>
+            <strong>Technical KPIs:</strong> Air Exchange Formulas & Heat Stress
+            Index
+          </li>
+          <li><strong>Video Demonstration:</strong> Systems in Operation</li>
+        </ul>
+      </section>
+
+      <!-- SLIDE 3: Types of Houses -->
+      <section class="slide">
+        <h2>Types of Poultry Houses</h2>
+        <div class="content-grid">
+          <div class="diagram-box">
+            <h3>Open-Sided House</h3>
+            <p>Relies on natural airflow and curtains.</p>
+            <div
+              style="
+                margin-top: 10px;
+                border-top: 1px dashed #fff;
+                padding-top: 10px;
+              "
+            >
+              <span class="airflow-arrow">💨</span> Natural Wind
+              <span class="airflow-arrow">🏠</span>
+            </div>
+            <ul style="font-size: 0.9rem; margin-top: 10px">
+              <li>Lower initial investment</li>
+              <li>Hard to control in extreme weather</li>
+              <li>Biosecurity risks</li>
+            </ul>
+          </div>
+          <div class="diagram-box" style="border-color: var(--accent-color)">
+            <h3>Environmentally Controlled (EC)</h3>
+            <p>Closed system with automated climate control.</p>
+            <div
+              style="
+                margin-top: 10px;
+                border-top: 1px dashed var(--accent-color);
+                padding-top: 10px;
+              "
+            >
+              <span class="airflow-arrow">⚙️</span> Fans + Pads
+              <span class="airflow-arrow">🏭</span>
+            </div>
+            <ul style="font-size: 0.9rem; margin-top: 10px">
+              <li>Optimal bird performance</li>
+              <li>High energy efficiency</li>
+              <li>Strict biosecurity</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 4: Ventilation Mechanics -->
+      <section class="slide">
+        <h2>Ventilation Mechanics</h2>
+        <div class="content-grid">
+          <div>
+            <h3>Negative Pressure System</h3>
+            <p>
+              The standard for modern poultry farming. Fans exhaust air
+              <em>out</em>, creating a vacuum that pulls fresh air
+              <em>in</em> through controlled inlets.
+            </p>
+            <br />
+            <h3>Tunnel Ventilation</h3>
+            <p>
+              Fans are placed at one end and inlets at the other. Air creates a
+              "wind chill effect" moving like a tunnel.
+            </p>
+          </div>
+          <div class="diagram-box" style="text-align: center">
+            <p style="margin-bottom: 10px; color: var(--accent-color)">
+              FLOWCHART: Tunnel Ventilation
+            </p>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+              "
+            >
+              <div style="border: 1px solid #fff; padding: 10px">
+                Inlets (Cool Pads)
+              </div>
+              <div style="font-size: 1.5rem">⬇️</div>
+              <div style="border: 1px solid #fff; padding: 10px; width: 80%">
+                Bird Zone (Wind Speed > 2.5m/s)
+              </div>
+              <div style="font-size: 1.5rem">⬇️</div>
+              <div
+                style="
+                  border: 1px solid var(--accent-color);
+                  color: var(--accent-color);
+                  padding: 10px;
+                "
+              >
+                Exhaust Fans
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 5: Heating & Cooling Equipment -->
+      <section class="slide">
+        <h2>Heating & Cooling Equipment</h2>
+        <div class="content-grid">
+          <div>
+            <h3>🔥 Heating (Brooding Phase)</h3>
+            <ul>
+              <li><strong>Pancake Brooders:</strong> Localized heat spots.</li>
+              <li>
+                <strong>Radiant Tube Heaters:</strong> Heats the floor/litter
+                effectively.
+              </li>
+              <li>
+                <strong>Space Heaters:</strong> Heats the entire air volume.
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3>❄️ Cooling (Grow-out Phase)</h3>
+            <ul>
+              <li>
+                <strong>Evaporative Cooling Pads:</strong> Cellulose pads wetted
+                with water. Air passes through and drops temperature via
+                evaporation.
+              </li>
+              <li>
+                <strong>Fogging Systems:</strong> High-pressure nozzles creating
+                mist (less common in humid areas).
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 6: Technical Data & Formulas -->
+      <section class="slide">
+        <h2>Key Performance Indicators (KPIs)</h2>
+        <p>
+          Calculating required airflow (CFM - Cubic Feet per Minute) to prevent
+          heat stress.
+        </p>
+
+        <div class="formula-card">
+          Total CFM Required = Number of Birds &times; Max CFM per Bird
+        </div>
+
+        <p style="font-size: 0.9rem">
+          <em>Example: 30,000 Broilers x 6 CFM = 180,000 Total CFM needed.</em>
+        </p>
+
+        <div class="formula-card">
+          Air Exchange Rate (min) = House Volume (ft³) / Total Fan Capacity
+          (CFM)
+        </div>
+
+        <div class="diagram-box" style="margin-top: 20px">
+          <h3>Target Parameters</h3>
+          <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
+            <li><strong>Temp (Day 1):</strong> 32°C - 34°C</li>
+            <li><strong>Temp (Harvest):</strong> 20°C - 22°C</li>
+            <li><strong>Humidity:</strong> 50% - 70%</li>
+            <li><strong>Air Speed:</strong> 2.0 - 3.0 m/s (Tunnel)</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SLIDE 7: Video -->
+      <section class="slide">
+        <h2>System Operation Demonstration</h2>
+        <p style="margin-bottom: 20px">
+          Visualizing airflow dynamics in a Tunnel Ventilated House.
+        </p>
+        <div class="video-wrapper">
+          <!-- Using a generic placeholder video about ventilation. Replace ID with specific material if needed -->
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <!-- Note: Replace dQw4w9WgXcQ with a real poultry ventilation video ID, e.g., from Munters or similar manufacturers -->
+        </div>
+      </section>
+
+      <!-- SLIDE 8: References -->
+      <section class="slide">
+        <h2>References</h2>
+        <div style="text-align: left; max-width: 800px">
+          <p
+            style="
+              margin-bottom: 1.5rem;
+              text-indent: -2rem;
+              padding-left: 2rem;
+            "
+          >
+            Czarick, M., & Fairchild, B. (2018).
+            <em>Poultry Housing Tips: Tunnel Ventilation</em>. University of
+            Georgia Cooperative Extension.
+          </p>
+          <p
+            style="
+              margin-bottom: 1.5rem;
+              text-indent: -2rem;
+              padding-left: 2rem;
+            "
+          >
+            Donald, J. (2020).
+            <em>Environmental Management in the Broiler House</em>. Auburn
+            University College of Agriculture.
+          </p>
+          <p
+            style="
+              margin-bottom: 1.5rem;
+              text-indent: -2rem;
+              padding-left: 2rem;
+            "
+          >
+            Ross Aviagen. (2022).
+            <em>Broiler Management Handbook: Environmental Control</em>. Aviagen
+            Group.
+          </p>
+          <p
+            style="
+              margin-bottom: 1.5rem;
+              text-indent: -2rem;
+              padding-left: 2rem;
+            "
+          >
+            American Society of Agricultural and Biological Engineers (ASABE).
+            (2019). <em>Heating, Ventilating and Air Conditioning</em>.
+            Standards EP270.5.
+          </p>
+        </div>
+        <h3 style="margin-top: 3rem; color: var(--accent-color)">Thank You</h3>
+      </section>
+
+      <!-- Progress Bar -->
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <script>
+      // --- JAVASCRIPT LOGIC ---
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const slides = document.querySelectorAll(".slide");
+        const progressBar = document.getElementById("progressBar");
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        // Function to update slide display
+        function showSlide(index) {
+          // Bounds check
+          if (index < 0) index = 0;
+          if (index >= totalSlides) index = totalSlides - 1;
+
+          currentSlide = index;
+
+          // Toggle active class
+          slides.forEach((slide, i) => {
+            if (i === currentSlide) {
+              slide.classList.add("active");
+            } else {
+              slide.classList.remove("active");
+            }
+          });
+
+          // Update progress bar
+          const progress = ((currentSlide + 1) / totalSlides) * 100;
+          progressBar.style.width = `${progress}%`;
+        }
+
+        // Initialize
+        showSlide(0);
+
+        // Keyboard Navigation
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowRight" || e.key === " " || e.key === "Enter") {
+            showSlide(currentSlide + 1);
+          } else if (e.key === "ArrowLeft") {
+            showSlide(currentSlide - 1);
+          }
+        });
+
+        // Touch Navigation (Simple Swipe)
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener("touchstart", (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener("touchend", (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          handleSwipe();
+        });
+
+        function handleSwipe() {
+          if (touchEndX < touchStartX - 50) showSlide(currentSlide + 1); // Swipe Left (Next)
+          if (touchEndX > touchStartX + 50) showSlide(currentSlide - 1); // Swipe Right (Prev)
+        }
+      });
+    </script>
+  </body>
+</html>
